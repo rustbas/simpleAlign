@@ -1,0 +1,8 @@
+# vim swp-files
+*.swp
+
+# python's files
+__pycache__/
+
+# ctags files
+tags
