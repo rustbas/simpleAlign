@@ -77,6 +77,7 @@ class nw_align():
         j = curr_idx[1]
 
         while curr_idx != [0, 0]:
+
             i = curr_idx[0]
             j = curr_idx[1]
 
