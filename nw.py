@@ -4,15 +4,15 @@ class nw_align():
         self.mism = mm
         self.mats = m
 
-    def align(self, s1, s2):
-        self.read = s1
-        self.reference = s2
+    def align(self, read, reference):
+        self.read = read
+        self.reference = reference
 
-        self.read_len = len(s1)
-        self.reference_len = len(s2)
+        self.read_len = len(self.read)
+        self.reference_len = len(self.reference)
 
 
-        if (s1 == "") and (s2 == ""):
+        if (self.read == "") and (self.reference == ""):
             self.score_mat = [[0]]
             self.path_mat = [[[-1,-1]]]
         else:
