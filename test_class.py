@@ -114,7 +114,6 @@ class Test_path():
         
         assert nw_obj.path_mat == path_mat
 
-    @pytest.mark.skip(reason="it's temp")
     def test_path_2(self):
         nw_obj = nw_align(g,mm,m)
     
@@ -125,9 +124,9 @@ class Test_path():
     
         path_mat = [
                 [[ -1, -1 ], [  0,  0 ],  [  0,  1 ],  [  0,  2 ],  [  0,  3 ]],
-                [[  0,  0 ], [  0,  0 ],  [  0,  0 ],  [  0,  0 ],  [  0,  0 ]],
-                [[  1,  0 ], [  0,  0 ],  [  0,  0 ],  [  0,  0 ],  [  0,  0 ]],
-                [[  2,  0 ], [  0,  0 ],  [  0,  0 ],  [  0,  0 ],  [  0,  0 ]],
+                [[  0,  0 ], [  0,  0 ],  [  1,  1 ],  [  1,  2 ],  [  1,  3 ]],
+                [[  1,  0 ], [  1,  1 ],  [  1,  1 ],  [  2,  2 ],  [  2,  3 ]],
+                [[  2,  0 ], [  2,  1 ],  [  2,  2 ],  [  2,  2 ],  [  3,  3 ]],
                 ]
         
-        assert nw_obj.path_mat == path_mat
+        assert nw_obj.path_mat == path_mat, f"path_mat = {path_mat}"
