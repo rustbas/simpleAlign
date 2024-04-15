@@ -61,3 +61,40 @@ class nw_align():
                     else:
                         self.score_mat[i][j] = d3
                         self.path_mat[i][j] = [i-1, j-1]
+
+        self.curr_idx = [self.reference_len, self.read_len]
+        self.alignment = self.restore_path()
+
+    def restore_path(self):
+
+        s1 = ""
+        s2 = ""
+
+
+        curr_idx = [self.reference_len, self.read_len]
+
+        i = curr_idx[0]
+        j = curr_idx[1]
+
+        while curr_idx != [0, 0]:
+            i = curr_idx[0]
+            j = curr_idx[1]
+
+            if (i - self.path_mat[i][j][0] == 1) and \
+                    (j - self.path_mat[i][j][1] == 1):
+                s1 += self.read[j-1]
+                s2 += self.reference[i-1]
+            elif (i - self.path_mat[i][j][0] == 0) and \
+                    (j - self.path_mat[i][j][1] == 1):
+                s1 += self.read[j-1]
+                s2 += '-'
+            elif (i - self.path_mat[i][j][0] == 1) and \
+                    (j - self.path_mat[i][j][1] == 0):
+                s1 += '-'
+                s2 += self.reference[i-1]
+            else:
+                return s1 + "\n" + s2
+
+            curr_idx = self.path_mat[i][j]
+
+        return s1[::-1] + "\n" + s2[::-1]
